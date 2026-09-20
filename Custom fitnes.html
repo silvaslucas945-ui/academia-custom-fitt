@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Custom Fit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * { scroll-behavior: smooth; }
+        body { font-family: 'Roboto', sans-serif; background: #050505; color: #fff; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Oswald', sans-serif; }
+        .logo-font { font-family: 'Bebas Neue', sans-serif; letter-spacing: 2px; }
+        :root { --purple: #7c3aed; --purple-dark: #5b21b6; }
+        .gradient-card { background: linear-gradient(145deg, #1a1a2e, #0f0f1a); }
+        .text-shadow { text-shadow: 0 2px 20px rgba(0,0,0,0.8); }
+        .glow-purple { box-shadow: 0 0 25px rgba(124, 58, 237, 0.4); }
+        .card-hover { transition: all 0.4s ease; border: 1px solid transparent; }
+        .card-hover:hover { transform: translateY(-6px); border-color: var(--purple); box-shadow: 0 15px 30px rgba(124, 58, 237, 0.2); }
+        input, select, textarea {
+            background: #0f0f1a; border: 1px solid #333; color: #fff;
+            padding: 12px 16px; border-radius: 8px; width: 100%; transition: all 0.3s;
+        }
+        input:focus, select:focus, textarea:focus { outline: none; border-color: #7c3aed; box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.3); }
+        .hero-bg {
+            background: linear-gradient(135deg, rgba(5,5,5,0.9) 0%, rgba(91,33,182,0.5) 100%), 
+                        url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1600&q=80') center/cover no-repeat;
+        }
+        .plan-popular { border-color: #7c3aed !important; box-shadow: 0 0 30px rgba(124, 58, 237, 0.3); transform: scale(1.05); position: relative; }
+        .plan-badge { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #7c3aed; padding: 4px 20px; border-radius: 20px; font-weight: bold; font-size: 0.8rem; }
+        .rotina-card {
+            background: linear-gradient(145deg, #1a1a2e, #0f0f1a);
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid rgba(124, 58, 237, 0.2);
+            transition: all 0.3s ease;
+        }
+        .rotina-card:hover { border-color: #7c3aed; box-shadow: 0 0 20px rgba(124, 58, 237, 0.15); }
+        .dia-semana {
+            display: inline-block;
+            background: #7c3aed;
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .exercicio-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(124, 58, 237, 0.1);
+        }
+        .exercicio-item:last-child { border-bottom: none; }
+        .dica-box {
+            background: rgba(124, 58, 237, 0.1);
+            border-radius: 10px;
+            padding: 1rem 1.25rem;
+            margin-top: 1.5rem;
+            border-left: 3px solid #facc15;
+        }
+        .dica-titulo {
+            font-weight: bold;
+            color: #facc15;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.25rem;
+        }
+    </style>
+</head>
+<body>
+    <nav class="fixed w-full z-50 bg-black/90 backdrop-blur-md border-b border-purple-900/30">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold tracking-wider logo-font">
+                <span class="text-[#7c3aed]">ACADEMIA</span><span class="text-white"> CUSTOM FIT</span>
+            </a>
+            <div class="hidden md:flex gap-8">
+                <a href="#como-treinar" class="font-medium text-gray-300 hover:text-[#7c3aed]">POR QUE TREINAR?</a>
+                <a href="#rotina" class="font-medium text-gray-300 hover:text-[#7c3aed]">ROTINA</a>
+                <a href="#tipos-treino" class="font-medium text-gray-300 hover:text-[#7c3aed]">TIPOS DE TREINO</a>
+                <a href="#planos" class="font-medium text-gray-300 hover:text-[#7c3aed]">PLANOS</a>
+                <a href="#inscricao" class="font-medium text-gray-300 hover:text-[#7c3aed]">INSCRIÇÂO</a>
+            </div>
+            <a href="#inscricao" class="hidden md:block bg-[#7c3aed] hover:bg-[#5b21b6] px-6 py-2 rounded font-bold transition-all">
+                INSCREVA-SE
+            </a>
+        </div>
+    </nav>
+
+    <header class="hero-bg min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-4 py-20">
+            <div class="max-w-4xl">
+                <p class="text-[#a78bfa] font-semibold text-lg mb-4 tracking-widest">DISCIPLINA • FOCO • RESULTADO</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-6 text-shadow">
+                    TRANSFORME SEU CORPO.<br>
+                    <span class="text-[#7c3aed]">ELEVE SUA MENTE.</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-2xl">
+                    Estrutura completa, profissionais qualificados e uma comunidade que te impulsiona.
+                </p>
+                <a href="#inscricao" class="bg-[#7c3aed] hover:bg-[#5b21b6] text-white font-bold py-4 px-10 rounded text-lg transition-all glow-purple inline-block">
+                    INSCREVA-SE AGORA <i class="fa fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section id="como-treinar" class="py-24 bg-[#050505]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-[#a78bfa] font-semibold tracking-widest mb-3">APRENDA DA FORMA CERTA</p>
+                <h2 class="text-4xl md:text-5xl font-bold">POR QUE TREINAR?</h2>
+                <div class="w-24 h-1 bg-[#7c3aed] mx-auto mt-4"></div>
+            </div>
+            <div class="bg-gradient-to-r from-[#1a1033] to-[#0f0f1a] rounded-3xl p-8 border border-purple-900/30">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-6 text-[#7c3aed]">Por que treinar é essencial?</h3>
+                        <h4 class="text-xl font-bold mt-6 mb-2 text-[#a78bfa]">💪 Saúde Física</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li><i class="fa fa-check text-green-400 mr-2"></i>Fortalece ossos e imunidade</li>
+                            <li><i class="fa fa-check text-green-400 mr-2"></i>Reduz risco de doenças cardíacas</li>
+                            <li><i class="fa fa-check text-green-400 mr-2"></i>Melhora metabolismo e sono</li>
+                        </ul>
+                        <h4 class="text-xl font-bold mt-6 mb-2 text-[#a78bfa]">🧠 Saúde Mental</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li><i class="fa fa-check text-green-400 mr-2"></i>Combate estresse e ansiedade</li>
+                            <li><i class="fa fa-check text-green-400 mr-2"></i>Aumenta autoestima e disciplina</li>
+                            <li><i class="fa fa-check text-green-400 mr-2"></i>Melhora foco e memória</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1571902983246-73a4d1aaa16d?w=600&q=80" alt="Saúde e exercício" class="rounded-2xl w-full shadow-2xl">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ROTINA DE TREINO -->
+    <section id="rotina" class="py-24 bg-gradient-to-b from-[#050505] to-[#0f0f1a]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-[#a78bfa] font-semibold tracking-widest mb-3">ORGANIZE-SE</p>
+                <h2 class="text-4xl md:text-5xl font-bold">ROTINA DE TREINO</h2>
+                <div class="w-24 h-1 bg-[#7c3aed] mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="rotina-card">
+                    <span class="dia-semana">Segunda</span>
+                    <h4 class="font-bold text-lg mb-3 text-[#a78bfa]">Peito + Tríceps</h4>
+                    <div class="exercicio-item"><p class="font-semibold">Supino Reto</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Supino Inclinado</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Flexão de Braço</p><p class="text-sm text-gray-400">3 × 10–15</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Tríceps na Polia</p><p class="text-sm text-gray-400">3 × 12–15</p></div>
+                </div>
+                <div class="rotina-card">
+                    <span class="dia-semana">Terça</span>
+                    <h4 class="font-bold text-lg mb-3 text-[#a78bfa]">Costas + Ombros</h4>
+                    <div class="exercicio-item"><p class="font-semibold">Puxada / Remada</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Remada Curvada</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Elevação Lateral</p><p class="text-sm text-gray-400">3 × 12–15</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Desenvolvimento com Halteres</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                </div>
+                <div class="rotina-card">
+                    <span class="dia-semana">Quarta</span>
+                    <h4 class="font-bold text-lg mb-3 text-[#a78bfa]">Pernas</h4>
+                    <div class="exercicio-item"><p class="font-semibold">Agachamento Livre</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Leg Press</p><p class="text-sm text-gray-400">3 × 12–15</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Cadeira Extensora</p><p class="text-sm text-gray-400">3 × 12–15</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Panturrilha em Pé</p><p class="text-sm text-gray-400">4 × 15–20</p></div>
+                </div>
+                <div class="rotina-card">
+                    <span class="dia-semana">Quinta</span>
+                    <h4 class="font-bold text-lg mb-3 text-[#a78bfa]">Braços + Abdômen</h4>
+                    <div class="exercicio-item"><p class="font-semibold">Rosca Direta</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Rosca Martelo</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Prancha</p><p class="text-sm text-gray-400">3 × 30–45s</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Abdominal Infra</p><p class="text-sm text-gray-400">3 × 15</p></div>
+                </div>
+                <div class="rotina-card">
+                    <span class="dia-semana">Sexta</span>
+                    <h4 class="font-bold text-lg mb-3 text-[#a78bfa]">Corpo Todo + Cardio</h4>
+                    <div class="exercicio-item"><p class="font-semibold">Agachamento com Halteres</p><p class="text-sm text-gray-400">3 × 12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Remada Unilateral</p><p class="text-sm text-gray-400">3 × 10–12</p></div>
+                    <div class="exercicio-item"><p class="font-semibold">Esteira / Bicicleta</p><p class="text-sm text-gray-400">25–30 min</p></div>
+                </div>
+                <div class="rotina-card">
+                    <span class="dia-semana">Sábado & Domingo</span>
+                    <h4 class="font-bold text-lg mb-3 text-[#a78bfa]">Descanso & Recuperação</h4>
+                    <div class="exercicio-item"><p>• Descanso muscular essencial para crescimento e recuperação</p></div>
+                    <div class="exercicio-item"><p>• Alongamento leve, caminhada curta ou yoga</p></div>
+                    <div class="exercicio-item"><p>• Atenção à alimentação e sono de qualidade</p></div>
+                    <div class="exercicio-item"><p>• Hidratação constante: pelo menos 2L de água por dia</p></div>
+                    <div class="exercicio-item"><p>• Planejamento da semana: metas, peso e treinos</p></div>
+                </div>
+            </div>
+
+            <div class="dica-box max-w-3xl mx-auto mt-12">
+                <p class="dica-titulo"><i class="fa fa-lightbulb-o"></i> Dicas Importantes</p>
+                <ul class="space-y-2 text-gray-300 mt-2">
+                    <li>✅ <strong>Aqueça sempre</strong> 5–10 min antes de iniciar os exercícios</li>
+                    <li>✅ <strong>Progrida gradualmente</strong> — aumente peso ou repetições a cada 2–3 semanas</li>
+                    <li>✅ <strong>Descanse 48h</strong> entre treinos do mesmo grupo muscular</li>
+                    <li>✅ <strong>Beba água</strong> antes, durante e depois do treino</li>
+                    <li>✅ <strong>Durma 7–9h</strong> — é durante o sono que o músculo se recupera e cresce</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="tipos-treino" class="py-24 bg-gradient-to-b from-[#0f0f1a] to-[#050505]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-[#a78bfa] font-semibold tracking-widest mb-3">DIVERSIDADE</p>
+                <h2 class="text-4xl md:text-5xl font-bold">TIPOS DE TREINO</h2>
+                <div class="w-24 h-1 bg-[#7c3aed] mx-auto mt-4"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="gradient-card rounded-2xl overflow-hidden card-hover border border-purple-900/30">
+                    <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=500&q=80" alt="Musculação" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-[#7c3aed]">MUSCULAÇÃO</h3>
+                        <p class="text-gray-400 mb-4">Ganho de massa, força e definição. Equipamentos modernos.</p>
+                    </div>
+                </div>
+                <div class="gradient-card rounded-2xl overflow-hidden card-hover border border-purple-900/30">
+                    <img src="https://www.cartacapital.com.br/wp-content/uploads/2025/11/corrida-de-rua-verao-1024x683-1024x683.jpg" alt="Cardio" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-[#7c3aed]">CARDIO / AERÓBICO</h3>
+                        <p class="text-gray-400 mb-4">Esteira, bicicleta, corrida. Fortalece o coração e acelera a perda de gordura.</p>
+                    </div>
+                </div>
+                <div class="gradient-card rounded-2xl overflow-hidden card-hover border border-purple-900/30">
+                    <img src="https://blogeducacaofisica.com.br/wp-content/uploads/2017/06/treino-funcional.jpg" alt="Treino Funcional" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-[#7c3aed]">TREINO FUNCIONAL</h3>
+                        <p class="text-gray-400 mb-4">Movimentos naturais. Força, agilidade e coordenação para o corpo todo.</p>
+                    </div>
+                </div>
+                <div class="gradient-card rounded-2xl overflow-hidden card-hover border border-purple-900/30">
+                    <img src="https://cms-media.freeletics.net/cdn-cgi/image/width=1015,format=auto,quality=76,metadata=none/HIIT_fcf9a0266d.jpg" alt="HIIT" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-[#7c3aed]">HIIT</h3>
+                        <p class="text-gray-400 mb-4">Treinos curtos e intensos. Queima calorias por horas depois do exercício.</p>
+                    </div>
+                </div>
+                <div class="gradient-card rounded-2xl overflow-hidden card-hover border border-purple-900/30">
+                    <img src="https://movite.com.br/wp-content/uploads/2014/04/Alongamento.-Devemos-fazer-antes-ou-depois-dos-exerciciosshutterstock_519817918-min-1-768x512.jpg" alt="Alongamento" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-[#7c3aed]">ALONGAMENTO</h3>
+                        <p class="text-gray-400 mb-4">Previne dores, melhora postura e relaxa corpo e mente.</p>
+                    </div>
+                </div>
+                <div class="gradient-card rounded-2xl overflow-hidden card-hover border border-purple-900/30">
+                    <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=500&q=80" alt="Aulas em Grupo" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold mb-3 text-[#7c3aed]">AULAS EM GRUPO</h3>
+                        <p class="text-gray-400 mb-4">Dança, luta, ginástica. Treinar junto motiva e cria amizades.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANOS E VALORES -- Atualizado conforme imagem -->
+    <section id="planos" class="py-24 bg-[#050505]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-[#a78bfa] font-semibold tracking-widest mb-3">ESCOLHA SEU CAMINHO</p>
+                <h2 class="text-4xl md:text-5xl font-bold">PLANOS & VALORES</h2>
+                <div class="w-24 h-1 bg-[#7c3aed] mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                <!-- BÁSICO -->
+                <div class="gradient-card rounded-2xl p-6 border border-purple-900/30 card-hover">
+                    <h3 class="text-xl font-bold mb-1 text-gray-300">BÁSICO</h3>
+                    <p class="text-gray-500 text-sm mb-4">Para começar bem</p>
+                    <p class="text-3xl font-bold mb-1">R$ <span class="text-[#7c3aed]">89</span><span class="text-lg">,90</span></p>
+                    <p class="text-gray-500 text-sm mb-6">/mês</p>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Musculação + Cardio</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Acesso às 6h às 22h</span></li>
+                        <li class="flex items-start gap-2 text-red-400"><i class="fa fa-times mt-1"></i><span>Aulas em grupo</span></li>
+                        <li class="flex items-start gap-2 text-red-400"><i class="fa fa-times mt-1"></i><span>Avaliação mensal</span></li>
+                    </ul>
+                    <a href="#inscricao" class="block w-full text-center border border-[#7c3aed] text-[#7c3aed] hover:bg-[#7c3aed] hover:text-white py-2 rounded-lg font-bold transition-all text-sm">
+                        Escolher
+                    </a>
+                </div>
+
+                <!-- ESSENCIAL -->
+                <div class="gradient-card rounded-2xl p-6 border border-purple-900/30 card-hover">
+                    <h3 class="text-xl font-bold mb-1 text-gray-300">ESSENCIAL</h3>
+                    <p class="text-gray-500 text-sm mb-4">Seu dia a dia completo</p>
+                    <p class="text-3xl font-bold mb-1">R$ <span class="text-[#7c3aed]">149</span><span class="text-lg">,90</span></p>
+                    <p class="text-gray-500 text-sm mb-6">/mês</p>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Musculação + Cardio</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Acesso 24h</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Aulas em grupo</span></li>
+                        <li class="flex items-start gap-2 text-red-400"><i class="fa fa-times mt-1"></i><span>Avaliação mensal</span></li>
+                    </ul>
+                    <a href="#inscricao" class="block w-full text-center border border-[#7c3aed] text-[#7c3aed] hover:bg-[#7c3aed] hover:text-white py-2 rounded-lg font-bold transition-all text-sm">
+                        Escolher
+                    </a>
+                </div>
+
+                <!-- COMPLETO -- MAIS ESCOLHIDO -->
+                <div class="gradient-card rounded-2xl p-6 plan-popular card-hover">
+                    <span class="plan-badge">MAIS ESCOLHIDO</span>
+                    <h3 class="text-xl font-bold mb-1 text-[#7c3aed]">COMPLETO</h3>
+                    <p class="text-gray-400 text-sm mb-4">Acompanhamento completo</p>
+                    <p class="text-3xl font-bold mb-1">R$ <span class="text-[#7c3aed]">199</span><span class="text-lg">,90</span></p>
+                    <p class="text-gray-500 text-sm mb-6">/mês</p>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Tudo do Essencial</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Avaliação mensal</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Personal 1x/semana</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>App de treino incluso</span></li>
+                    </ul>
+                    <a href="#inscricao" class="block w-full text-center bg-[#7c3aed] hover:bg-[#5b21b6] text-white py-2 rounded-lg font-bold transition-all text-sm">
+                        Escolher
+                    </a>
+                </div>
+
+                <!-- FAMILIAR -->
+                <div class="gradient-card rounded-2xl p-6 border border-purple-900/30 card-hover">
+                    <h3 class="text-xl font-bold mb-1 text-gray-300">FAMILIAR</h3>
+                    <p class="text-gray-500 text-sm mb-4">Até 4 pessoas</p>
+                    <p class="text-3xl font-bold mb-1">R$ <span class="text-[#7c3aed]">249</span><span class="text-lg">,90</span></p>
+                    <p class="text-gray-500 text-sm mb-6">/mês</p>
+                    <ul class="space-y-2 mb-6 text-sm">
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Até 4 pessoas</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Acesso 24h</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Aulas em grupo</span></li>
+                        <li class="flex items-start gap-2"><i class="fa fa-check text-green-400 mt-1"></i><span>Avaliação mensal para todos</span></li>
+                    </ul>
+                    <a href="#inscricao" class="block w-full text-center border border-[#7c3aed] text-[#7c3aed] hover:bg-[#7c3aed] hover:text-white py-2 rounded-lg font-bold transition-all text-sm">
+                        Escolher
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INSCRIÇÃO -->
+    <section id="inscricao" class="py-24 bg-gradient-to-b from-[#050505] to-[#0f0f1a]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <p class="text-[#a78bfa] font-semibold tracking-widest mb-3">DÊ O PRIMEIRO PASSO</p>
+                <h2 class="text-4xl md:text-5xl font-bold">FAÇA SUA INSCRIÇÃO</h2>
+                <div class="w-24 h-1 bg-[#7c3aed] mx-auto mt-4"></div>
+            </div>
+
+            <div class="max-w-2xl mx-auto gradient-card rounded-3xl p-8 border border-purple-900/30">
+                <form class="space-y-6">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block mb-2 font-semibold text-gray-300">Nome Completo</label>
+                            <input type="text" placeholder="Seu nome completo">
+                        </div>
+                        <div>
+                            <label class="block mb-2 font-semibold text-gray-300">Telefone / WhatsApp</label>
+                            <input type="tel" placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-semibold text-gray-300">E-mail</label>
+                        <input type="email" placeholder="seuemail@exemplo.com">
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-semibold text-gray-300">Plano Escolhido</label>
+                        <select>
+                            <option value="">Selecione um plano</option>
+                            <option value="basico">Básico — R$ 89,90/mês</option>
+                            <option value="essencial">Essencial — R$ 149,90/mês</option>
+                            <option value="completo">Completo — R$ 199,90/mês ✅ Mais Escolhido</option>
+                            <option value="familiar">Familiar — R$ 249,90/mês</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block mb-2 font-semibold text-gray-300">Mensagem (opcional)</label>
+                        <textarea rows="4" placeholder="Tem alguma dúvida ou observação? Escreva aqui..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-[#7c3aed] hover:bg-[#5b21b6] py-4 rounded-lg font-bold text-lg transition-all glow-purple">
+                        CONCLUIR INSCRIÇÃO <i class="fa fa-check ml-2"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="py-12 bg-black border-t border-purple-900/30">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-2xl font-bold logo-font mb-4"><span class="text-[#7c3aed]">ACADEMIA</span> CUSTOM FIT</p>
+            <p class="text-gray-400 mb-4">Rua Exemplo, 123 — São Paulo — SP</p>
+            <p class="text-gray-500 text-sm">© 2026 Academia Custom Fit — Todos os direitos reservados</p>
+        </div>
+    </footer>
+</body>
+</html>
